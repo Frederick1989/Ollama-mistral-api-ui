@@ -28,29 +28,23 @@ app=FastAPI()
 async def home():
     return "Server Running"
 
-@app.post("/read_article")
+@app.post("/scrape")
 async def read_article(input: Article):
     web_scraper(input.url)
     return "Read article at '" + input.url + "'"
 
-@app.post("/learn_fact")
+@app.post("/store")
 async def learn_fact(input: Inform):
     store_new_information(input.fact)
     return "Learned '" + input.fact + "'"
 
-@app.post("/ask_question")
+@app.post("/ask")
 async def ask_question(input: Question):
     answer = prompt_query(input.question)
     print('llm replies to api : \n',answer)
     json_answer = jsonable_encoder(answer)
     return JSONResponse(json_answer)
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 if __name__ == "__main__":

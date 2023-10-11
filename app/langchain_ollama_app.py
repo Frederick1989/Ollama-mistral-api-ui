@@ -169,6 +169,6 @@ def prompt_query(question) :
     return sourced_answer
 
 
-store_new_information('+27 11 797 4003 this is absa new number ')
-# learn_from_existing_documents()
-prompt_query('does absa have a new number and what is it?')
+# store_new_information('+27 11 797 4003 this is absa new number ')
+# # learn_from_existing_documents()
+# prompt_query('does absa have a new number and what is it?')
