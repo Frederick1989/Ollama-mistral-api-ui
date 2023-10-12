@@ -103,7 +103,7 @@ chatllm = Ollama(base_url=Ollama_host,
 # Read an article and store it , confluence, absa.co.za etc
 def web_scraper(url) : 
     data = WebBaseLoader(url).load()
-    text_splitter=RecursiveCharacterTextSplitter( chunk_size = 100, chunk_overlap  = 20, length_function = len, is_separator_regex = False).split_documents(data)
+    text_splitter=RecursiveCharacterTextSplitter( chunk_size = 100, chunk_overlap  = 1, length_function = len, is_separator_regex = False).split_documents(data)
     ids = vectorstore.add_documents(text_splitter)
     vectorstore.persist()
     print(ids)
